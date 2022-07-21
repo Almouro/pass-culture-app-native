@@ -18,7 +18,6 @@ import { UseNavigationType, UseRouteType } from 'features/navigation/RootNavigat
 import { homeNavConfig } from 'features/navigation/TabBar/helpers'
 import { useGoBack } from 'features/navigation/useGoBack'
 import { env } from 'libs/environment'
-import { useSafeState } from 'libs/hooks'
 import { storage } from 'libs/storage'
 import { BottomContentPage } from 'ui/components/BottomContentPage'
 import { ButtonPrimary } from 'ui/components/buttons/ButtonPrimary'
@@ -51,9 +50,9 @@ export const Login: FunctionComponent<Props> = memo(function Login(props) {
   const { data: settings } = useAppSettings()
   const [email, setEmail] = useState(INITIAL_IDENTIFIER)
   const [password, setPassword] = useState(INITIAL_PASSWORD)
-  const [isLoading, setIsLoading] = useSafeState(false)
-  const [errorMessage, setErrorMessage] = useSafeState<string | null>(null)
-  const [emailErrorMessage, setEmailErrorMessage] = useSafeState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [emailErrorMessage, setEmailErrorMessage] = useState<string | null>(null)
   const signIn = useSignIn()
   const shouldDisableLoginButton = isValueEmpty(email) || isValueEmpty(password) || isLoading
   const emailInputErrorId = uuidv4()
