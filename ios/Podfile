@@ -2,6 +2,7 @@ require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 platform :ios, '11.0'
+pod 'BatchExtension-ObjC'
 
 target 'PassCulture' do
   config = use_native_modules!
@@ -25,7 +26,6 @@ target 'PassCulture' do
   pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '8.15.0'
   pod 'Batch', '~>1.17'
   pod 'BatchFirebaseDispatcher'
-  pod 'BatchExtension-ObjC'
 
   # Enables react-native-text-input-mask
   #
