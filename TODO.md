@@ -2,11 +2,11 @@
 
 fix
 
-- [ ] location aria-label
+- [x] location aria-label
 - [ ] ~~search main input aria-label~~
-- [ ] previous button `a` ou `button`
-- [ ] previous button aria-label
-- [ ] previous button title ?
+- [x] previous button `a` ou `button`
+- [x] previous button aria-label
+- [x] previous button title ?
 
 feat
 
