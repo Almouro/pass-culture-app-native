@@ -3,7 +3,7 @@
 fix
 
 - [ ] location aria-label
-- [ ] search main input aria-label
+- [ ] ~~search main input aria-label~~
 - [ ] previous button `a` ou `button`
 - [ ] previous button aria-label
 - [ ] previous button title ?
