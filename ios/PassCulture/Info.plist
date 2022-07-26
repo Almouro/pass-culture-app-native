@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>BATCH_APP_GROUP_ID</key>
-	<string>group.$(PRODUCT_BUNDLE_IDENTIFIER).batch</string>
 	<key>BatchAPIKey</key>
 	<string>$(BATCH_API_KEY_IOS)</string>
 	<key>CFBundleDevelopmentRegion</key>
