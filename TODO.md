@@ -8,7 +8,7 @@ fix
 - [x] previous button aria-label
 - [x] previous button title ?
 
-feat
+feat https://passculture.atlassian.net/browse/PC-15578
 
 - [ ] ajouter bouton invisible
 - [ ] bloquer focus au clavier sur input
