@@ -14,6 +14,7 @@ import { HeaderBackground } from 'ui/svg/HeaderBackground'
 import { getSpacing, Spacer } from 'ui/theme'
 import { getHeadingAttrs } from 'ui/theme/typographyAttrs/getHeadingAttrs'
 import { useCustomSafeInsets } from 'ui/theme/useCustomSafeInsets'
+import { QuickAccess } from 'ui/web/link/QuickAccess'
 
 type Props = {
   searchInputID: string
@@ -27,6 +28,7 @@ const SearchBoxWithLabel = ({ searchInputID, appEnableAutocomplete }: Props) => 
     <React.Fragment>
       <HeaderBackground height={top + getSpacing(20)} />
       <Spacer.TopScreen />
+      <QuickAccess href="toto" title="toto" />
       <SearchBoxContainer testID="searchBoxWithLabel">
         <View {...getHeadingAttrs(1)}>
           <StyledInputLabel htmlFor={searchInputID}>{t`Recherche une offre`}</StyledInputLabel>
