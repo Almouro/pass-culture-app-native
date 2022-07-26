@@ -66,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		030D8707D3F8414C91A9D78A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = PassCulture/AppDelegate.h; sourceTree = "<group>"; };
+		1B1EC8D228903F2000CEDB52 /* RichNotificationsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RichNotificationsExtension.entitlements; sourceTree = "<group>"; };
 		1B7A4B7F288EA0EA00D75321 /* RichNotificationsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RichNotificationsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7A4B81288EA0EA00D75321 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		1B7A4B82288EA0EA00D75321 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		1B7A4B80288EA0EA00D75321 /* RichNotificationsExtension */ = {
 			isa = PBXGroup;
 			children = (
+				1B1EC8D228903F2000CEDB52 /* RichNotificationsExtension.entitlements */,
 				1B7A4B81288EA0EA00D75321 /* NotificationService.h */,
 				1B7A4B82288EA0EA00D75321 /* NotificationService.m */,
 				1B7A4B84288EA0EA00D75321 /* Info.plist */,
@@ -539,6 +541,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = RichNotificationsExtension/RichNotificationsExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -578,6 +581,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = RichNotificationsExtension/RichNotificationsExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
