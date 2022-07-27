@@ -92,6 +92,6 @@ describe('SearchHeader component', () => {
     expect(button).toHaveAttribute('href')
     const href = button.getAttribute('href')
     expect(href).toContain('/recherche?')
-    expect(href).toContain('view=%22Suggestions')
+    expect(href).toContain('view=%22Suggestions%22')
   })
 })
