@@ -81,17 +81,17 @@ describe('SearchHeader component', () => {
     await userEvent.keyboard('{Enter}')
   })
 
-  it.skip('should navigate to the search suggestion view when focusing then activating the button', async () => {
+  it('should with a link to the suggestion view', async () => {
     useRoute.mockReturnValueOnce({ params: { view: SearchView.Landing } })
-    const { queryByRole, rerender } = render(
+    const { getByRole } = render(
       <SearchHeader searchInputID={searchInputID} appEnableAutocomplete={false} />
     )
 
-    await userEvent.tab()
+    const button = getByRole('link')
 
-    // await userEvent.keyboard('[Enter]')
-    await userEvent.keyboard('{Enter}')
-
-    expect(queryByRole('searchBoxWithoutLabel')).toBeTruthy()
+    expect(button).toHaveAttribute('href')
+    const href = button.getAttribute('href')
+    expect(href).toContain('/recherche?')
+    expect(href).toContain('view=%22Suggestions')
   })
 })
