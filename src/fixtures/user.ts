@@ -1,5 +1,6 @@
 import { UserProfileResponse, UserRole } from 'api/gen'
 
+// TODO(anoukhello) move this fixture in profile feature
 export const nonBeneficiaryUser: UserProfileResponse = {
   bookedOffers: {},
   domainsCredit: {

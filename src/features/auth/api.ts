@@ -39,6 +39,7 @@ type SignUpResponse =
       }
     }
 
+// TODO(anoukhello): create a /api directory and one file for each hook
 export function useSignIn(): (data: SigninRequest) => Promise<SignInResponse> {
   const loginRoutine = useLoginRoutine()
 

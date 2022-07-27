@@ -1,5 +1,6 @@
 import { ContentTypes, HomepageEntry } from 'features/home/contentful'
 
+// TODO(anoukhello) move this fixture in home feature
 export const homepageEntriesAPIResponse = {
   sys: { type: 'Array' },
   total: 2,
