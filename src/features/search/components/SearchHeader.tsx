@@ -1,5 +1,5 @@
 import { t } from '@lingui/macro'
-import { useRoute } from '@react-navigation/native'
+import { getPathFromState, useRoute } from '@react-navigation/native'
 import React, { FunctionComponent } from 'react'
 import { View } from 'react-native'
 import styled from 'styled-components/native'
@@ -23,12 +23,15 @@ type Props = {
 
 const SearchBoxWithLabel = ({ searchInputID, appEnableAutocomplete }: Props) => {
   const { top } = useCustomSafeInsets()
+  const { params } = useRoute<UseRouteType<'Search'>>()
+
+  const pathToSuggestions = '/recherche?view=%22Suggestions'
 
   return (
     <React.Fragment>
       <HeaderBackground height={top + getSpacing(20)} />
       <Spacer.TopScreen />
-      <QuickAccess href="toto" title="Recherche par mots-clés" />
+      <QuickAccess href={pathToSuggestions} title="Recherche par mots-clés" />
       <SearchBoxContainer testID="searchBoxWithLabel">
         <View {...getHeadingAttrs(1)}>
           <StyledInputLabel htmlFor={searchInputID}>{t`Recherche une offre`}</StyledInputLabel>
