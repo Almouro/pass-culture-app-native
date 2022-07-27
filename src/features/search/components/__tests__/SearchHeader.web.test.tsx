@@ -70,7 +70,7 @@ describe('SearchHeader component', () => {
       <SearchHeader searchInputID={searchInputID} appEnableAutocomplete={false} />
     )
     const button = getByRole('link')
-    const toto = jest.fn()
+    const spyButtonClick = jest.fn()
 
     // stop click propagation to prevents the following jsdom's error
     // Error: Not implemented: navigation (except hash changes)
@@ -79,7 +79,7 @@ describe('SearchHeader component', () => {
       'click',
       (event) => {
         event.preventDefault()
-        toto()
+        spyButtonClick()
       },
       false
     )
@@ -88,7 +88,7 @@ describe('SearchHeader component', () => {
 
     await userEvent.keyboard('{Enter}')
 
-    expect(toto).toHaveBeenCalled()
+    expect(spyButtonClick).toHaveBeenCalled()
   })
 
   it('should with a link to the suggestion view', async () => {
