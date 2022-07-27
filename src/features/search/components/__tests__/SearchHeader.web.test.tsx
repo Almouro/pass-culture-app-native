@@ -64,7 +64,7 @@ describe('SearchHeader component', () => {
     expect(button).toHaveTextContent('Recherche par mots-clés')
   })
 
-  it('should do something when focusing then activating the button', async () => {
+  it('should be clickable when focusing then activating the button', async () => {
     useRoute.mockReturnValueOnce({ params: { view: SearchView.Landing } })
     const { getByRole } = render(
       <SearchHeader searchInputID={searchInputID} appEnableAutocomplete={false} />
