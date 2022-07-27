@@ -28,7 +28,7 @@ const SearchBoxWithLabel = ({ searchInputID, appEnableAutocomplete }: Props) => 
     <React.Fragment>
       <HeaderBackground height={top + getSpacing(20)} />
       <Spacer.TopScreen />
-      <QuickAccess href="toto" title="toto" />
+      <QuickAccess href="toto" title="Recherche par mots-clés" />
       <SearchBoxContainer testID="searchBoxWithLabel">
         <View {...getHeadingAttrs(1)}>
           <StyledInputLabel htmlFor={searchInputID}>{t`Recherche une offre`}</StyledInputLabel>

@@ -64,6 +64,17 @@ describe('SearchHeader component', () => {
     expect(button).toBeTruthy()
   })
 
+  it('should contain a button to go the search suggestion view', () => {
+    useRoute.mockReturnValueOnce({ params: { view: SearchView.Landing } })
+    const { queryByRole } = render(
+      <SearchHeader searchInputID={searchInputID} appEnableAutocomplete={false} />
+    )
+
+    const button = queryByRole('link')
+
+    expect(button).toHaveTextContent('Recherche par mots-clés')
+  })
+
   it.skip('should navigate to the search suggestion view when focusing then activating the button', async () => {
     useRoute.mockReturnValueOnce({ params: { view: SearchView.Landing } })
     const { queryByRole } = render(
