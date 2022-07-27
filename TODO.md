@@ -11,6 +11,7 @@ fix
 feat https://passculture.atlassian.net/browse/PC-15578
 
 - [ ] ajouter bouton invisible
+- [ ] test describie search header button
 - [ ] bloquer focus au clavier sur input
 - [ ] vérifier comportement entre Landing et Suggestions
 - [ ] le style responsive design du nouveau bouton caché
