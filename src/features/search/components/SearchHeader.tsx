@@ -8,6 +8,7 @@ import { UseRouteType } from 'features/navigation/RootNavigator'
 import { SearchBox } from 'features/search/components/SearchBox'
 import { SearchBoxAutocomplete } from 'features/search/components/SearchBoxAutocomplete'
 import { SearchView } from 'features/search/types'
+import { ButtonPrimary } from 'ui/components/buttons/ButtonPrimary'
 import { InputLabel } from 'ui/components/InputLabel/InputLabel'
 import { styledInputLabel } from 'ui/components/InputLabel/styledInputLabel'
 import { HeaderBackground } from 'ui/svg/HeaderBackground'
@@ -32,7 +33,7 @@ const SearchBoxWithLabel = ({ searchInputID, appEnableAutocomplete }: Props) => 
     <React.Fragment>
       <HeaderBackground height={top + getSpacing(20)} />
       <Spacer.TopScreen />
-      <QuickAccess href={pathToSuggestions} title="Recherche par mots-clés" />
+      <ButtonPrimary href={pathToSuggestions} wording="Recherche par mots-clés" />
       <SearchBoxContainer testID="searchBoxWithLabel">
         <View {...getHeadingAttrs(1)}>
           <StyledInputLabel htmlFor={searchInputID}>{t`Recherche une offre`}</StyledInputLabel>

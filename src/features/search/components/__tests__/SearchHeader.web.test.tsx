@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-import { useRoute } from '__mocks__/@react-navigation/native'
+import { navigate, useRoute } from '__mocks__/@react-navigation/native'
 import { SearchGroupNameEnum } from 'api/gen'
 import { SearchHeader } from 'features/search/components/SearchHeader'
 import { LocationType } from 'features/search/enums'
@@ -91,17 +91,19 @@ describe('SearchHeader component', () => {
     expect(spyButtonClick).toHaveBeenCalled()
   })
 
-  it('should with a link to the suggestion view', async () => {
+  it('should navigate to the search suggestion view when focusing then activating the button', async () => {
     useRoute.mockReturnValueOnce({ params: { view: SearchView.Landing } })
-    const { getByRole } = render(
-      <SearchHeader searchInputID={searchInputID} appEnableAutocomplete={false} />
-    )
+    render(<SearchHeader searchInputID={searchInputID} appEnableAutocomplete={false} />)
 
-    const button = getByRole('link')
+    await userEvent.tab()
 
-    expect(button).toHaveAttribute('href')
-    const href = button.getAttribute('href')
-    expect(href).toContain('/recherche?')
-    expect(href).toContain('view=%22Suggestions%22')
+    await userEvent.keyboard('{Enter}')
+
+    const screen = 'Search'
+    const params = {
+      ...initialSearchState,
+      view: SearchView.Suggestions,
+    }
+    expect(navigate).toHaveBeenCalledWith(screen, params)
   })
 })
