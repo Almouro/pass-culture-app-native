@@ -64,6 +64,21 @@ describe('SearchHeader component', () => {
     expect(button).toHaveTextContent('Recherche par mots-clés')
   })
 
+  it('should do something when focusing then activating the button', async () => {
+    useRoute.mockReturnValueOnce({ params: { view: SearchView.Landing } })
+    const { getByRole } = render(
+      <SearchHeader searchInputID={searchInputID} appEnableAutocomplete={false} />
+    )
+    const button = getByRole('link')
+
+    button.addEventListener('click', (event) => event.preventDefault(), false)
+
+    await userEvent.tab()
+
+    // await userEvent.keyboard('[Enter]')
+    await userEvent.keyboard('{Enter}')
+  })
+
   it.skip('should navigate to the search suggestion view when focusing then activating the button', async () => {
     useRoute.mockReturnValueOnce({ params: { view: SearchView.Landing } })
     const { queryByRole } = render(
@@ -72,7 +87,7 @@ describe('SearchHeader component', () => {
 
     await userEvent.tab()
 
-    await userEvent.keyboard('[Enter]')
+    // await userEvent.keyboard('[Enter]')
     await userEvent.keyboard('{Enter}')
 
     expect(queryByRole('searchBoxWithoutLabel')).toBeTruthy()
