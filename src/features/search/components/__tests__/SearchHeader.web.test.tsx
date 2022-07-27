@@ -70,15 +70,25 @@ describe('SearchHeader component', () => {
       <SearchHeader searchInputID={searchInputID} appEnableAutocomplete={false} />
     )
     const button = getByRole('link')
+    const toto = jest.fn()
 
     // stop click propagation to prevents the following jsdom's error
     // Error: Not implemented: navigation (except hash changes)
     // https://github.com/jsdom/jsdom/issues/2112#issuecomment-926601210
-    button.addEventListener('click', (event) => event.preventDefault(), false)
+    button.addEventListener(
+      'click',
+      (event) => {
+        event.preventDefault()
+        toto()
+      },
+      false
+    )
 
     await userEvent.tab()
 
     await userEvent.keyboard('{Enter}')
+
+    expect(toto).toHaveBeenCalled()
   })
 
   it('should with a link to the suggestion view', async () => {
