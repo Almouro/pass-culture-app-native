@@ -11,8 +11,22 @@ export const usePushWithStagedSearch = () => {
   const { searchState: stagedSearchState } = useStagedSearch()
   const { navigate } = useNavigation<UseNavigationType>()
 
+  console.log('usePushWithStagedSearch')
+
+  return (partialSearchState?: Partial<SearchState>, options: { reset?: boolean } = {}) => {
+    console.log('luiiii là, il est appelé, non ?')
+    debugger
+    navigate(
+      ...getTabNavConfig('Search', {
+        ...stagedSearchState,
+        ...(options.reset ? initialSearchState : {}),
+        ...(partialSearchState || {}),
+      })
+    )
+  }
   return useCallback(
     (partialSearchState?: Partial<SearchState>, options: { reset?: boolean } = {}) => {
+      console.log('luiiii là, il est appelé, non ?')
       navigate(
         ...getTabNavConfig('Search', {
           ...stagedSearchState,

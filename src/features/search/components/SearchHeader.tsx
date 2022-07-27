@@ -1,12 +1,13 @@
 import { t } from '@lingui/macro'
 import { getPathFromState, useRoute } from '@react-navigation/native'
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useCallback } from 'react'
 import { View } from 'react-native'
 import styled from 'styled-components/native'
 
 import { UseRouteType } from 'features/navigation/RootNavigator'
 import { SearchBox } from 'features/search/components/SearchBox'
 import { SearchBoxAutocomplete } from 'features/search/components/SearchBoxAutocomplete'
+import { usePushWithStagedSearch } from 'features/search/pages/usePushWithStagedSearch'
 import { SearchView } from 'features/search/types'
 import { ButtonPrimary } from 'ui/components/buttons/ButtonPrimary'
 import { InputLabel } from 'ui/components/InputLabel/InputLabel'
@@ -25,15 +26,26 @@ type Props = {
 const SearchBoxWithLabel = ({ searchInputID, appEnableAutocomplete }: Props) => {
   const { top } = useCustomSafeInsets()
   const { params } = useRoute<UseRouteType<'Search'>>()
+  const pushWithStagedSearch = usePushWithStagedSearch()
+  console.log('usePushWithStagedSearch', usePushWithStagedSearch)
 
-  const pathToSuggestions =
-    '/recherche?beginningDatetime=null&date=null&endingDatetime=null&hitsPerPage=20&locationFilter=%7B%22locationType%22%3A%22EVERYWHERE%22%7D&offerCategories=%5B%5D&offerSubcategories=%5B%5D&offerIsDuo=false&offerIsFree=false&offerIsNew=false&offerTypes=%7B%22isDigital%22%3Afalse%2C%22isEvent%22%3Afalse%2C%22isThing%22%3Afalse%7D&priceRange=%5B0%2C300%5D&query=%22%22&tags=%5B%5D&timeRange=null&view=%22Suggestions%22'
+  const navigateToSuggestions = useCallback(() => {
+    console.log('navigateToSuggestions')
+    console.log(
+      'toi',
+      pushWithStagedSearch({
+        // ...params,
+        // view: SearchView.Suggestions,
+      })
+    )
+    console.log('navigateToSuggestions après')
+  }, [params, pushWithStagedSearch])
 
   return (
     <React.Fragment>
       <HeaderBackground height={top + getSpacing(20)} />
       <Spacer.TopScreen />
-      <ButtonPrimary href={pathToSuggestions} wording="Recherche par mots-clés" />
+      <ButtonPrimary onPress={navigateToSuggestions} wording="Recherche par mots-clés" />
       <SearchBoxContainer testID="searchBoxWithLabel">
         <View {...getHeadingAttrs(1)}>
           <StyledInputLabel htmlFor={searchInputID}>{t`Recherche une offre`}</StyledInputLabel>
