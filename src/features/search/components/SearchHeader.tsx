@@ -25,7 +25,8 @@ const SearchBoxWithLabel = ({ searchInputID, appEnableAutocomplete }: Props) => 
   const { top } = useCustomSafeInsets()
   const { params } = useRoute<UseRouteType<'Search'>>()
 
-  const pathToSuggestions = '/recherche?view=%22Suggestions%22'
+  const pathToSuggestions =
+    '/recherche?beginningDatetime=null&date=null&endingDatetime=null&hitsPerPage=20&locationFilter=%7B%22locationType%22%3A%22EVERYWHERE%22%7D&offerCategories=%5B%5D&offerSubcategories=%5B%5D&offerIsDuo=false&offerIsFree=false&offerIsNew=false&offerTypes=%7B%22isDigital%22%3Afalse%2C%22isEvent%22%3Afalse%2C%22isThing%22%3Afalse%7D&priceRange=%5B0%2C300%5D&query=%22%22&tags=%5B%5D&timeRange=null&view=%22Suggestions%22'
 
   return (
     <React.Fragment>
