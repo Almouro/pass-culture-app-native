@@ -71,17 +71,19 @@ describe('SearchHeader component', () => {
     )
     const button = getByRole('link')
 
+    // stop click propagation to prevents the following jsdom's error
+    // Error: Not implemented: navigation (except hash changes)
+    // https://github.com/jsdom/jsdom/issues/2112#issuecomment-926601210
     button.addEventListener('click', (event) => event.preventDefault(), false)
 
     await userEvent.tab()
 
-    // await userEvent.keyboard('[Enter]')
     await userEvent.keyboard('{Enter}')
   })
 
   it.skip('should navigate to the search suggestion view when focusing then activating the button', async () => {
     useRoute.mockReturnValueOnce({ params: { view: SearchView.Landing } })
-    const { queryByRole } = render(
+    const { queryByRole, rerender } = render(
       <SearchHeader searchInputID={searchInputID} appEnableAutocomplete={false} />
     )
 
